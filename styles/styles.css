@@ -1,0 +1,169 @@
+/*****************************************/
+/*                 ALGEMEEN              */
+/*****************************************/
+
+* {
+    margin: 0rem;
+    padding: 0rem;
+}
+
+html {
+    font-family: 'Open Sans', sans-serif;
+
+    /* setting a default margin */
+    --margin-default: 2em 0em;
+
+    /* setting a default size */
+    --size-default: 90%;
+
+
+
+    /* setting a default width */
+    --width-default: 5em;
+
+    /* calculating a large width using the default */
+    --width-large: calc(2 * var(--width-default));
+
+    /* calculating a small width using the default */
+    --width-small: calc(0.5 * var(--width-default));
+
+
+
+    /* setting a default height */
+    --height-default: 5em;
+
+    /* calculating a small height using the default */
+    --height-large: calc(2 * var(--height-default));
+
+    /* calculating a large height using the default */
+    --height-small: calc(0.5 * var(--height-default));
+
+
+
+    /* setting a default font size */
+    --font-size: 1em;
+
+
+    /* setting a primary and secondary color*/
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+}
+
+main {
+    width: var(--size-default);
+    margin: 0 auto;
+    margin-top: 3em;
+}
+
+h1,
+h2,
+p {
+    color: var (--primary-color, black)
+}
+
+h1 {
+    font-weight: 900;
+    font-size: calc(2 * var(--font-size));
+}
+
+h2 {
+    font-weight: 600;
+    margin-bottom: 1em;
+    font-size: calc(1.3 * var(--font-size));
+}
+
+p {
+    font-weight: 600;
+    font-size: var(--font-size);
+}
+
+main > div:nth-of-type(1) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1em;
+    background-color: #E5E5E5;
+}
+
+div div {
+    margin: var(--margin-default);
+    text-align: center;
+}
+
+/* small and small */
+div div:nth-child(1) {
+    background-color: yellow;
+    width: var(--width-small);
+    height: var(--height-small);
+}
+
+/* small and default */
+div div:nth-child(2) {
+    background-color: forestgreen;
+    width: var(--width-small);
+    height: var(--height-default);
+}
+
+/* small and large*/
+div div:nth-child(3) {
+    background-color: cornflowerblue;
+    width: var(--width-small);
+    height: var(--height-large);
+}
+
+/* default and small*/
+div div:nth-child(4) {
+    background-color: violet;
+    width: var(--width-default);
+    height: var(--height-small);
+}
+
+/* default and default*/
+div div:nth-child(5) {
+    background-color: mediumpurple;
+    width: var(--width-default);
+    height: var(--height-default);
+}
+
+/* default and large*/
+div div:nth-child(6) {
+    background-color: crimson;
+    width: var(--width-default);
+    height: var(--height-large);
+}
+
+/* large and small */
+div div:nth-child(7) {
+    background-color: blue;
+    width: var(--width-large);
+    height: var(--height-small);
+}
+
+/* large and default */
+div div:nth-child(8) {
+    background-color: orange;
+    width: var(--width-large);
+    height: var(--height-default);
+}
+
+/* large and large*/
+div div:nth-child(9) {
+    background-color: deeppink;
+    width: var(--width-large);
+    height: var(--height-large);
+}
+
+
+/* until width is 900px.. */
+@media (max-width: 900px) {
+
+    /* ..make even divs the primary color and the text the secundary color */
+    div div:nth-child(even) {
+        background-color: var(--primary-color);
+        color: var(--secondary-color, white)
+    }
+
+    /* ..make odd divs the secundary color */
+    div div:nth-child(odd) {
+        background-color: var(--secondary-color);
+    }
+}
